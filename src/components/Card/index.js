@@ -1,13 +1,16 @@
 import React from "react";
 import MyButton from "../Button";
 
-const Card = (props) => (
-  <div class="card bg-dark text-white">
-    <img src="https://picsum.photos/400/400" class="card-img" alt="..." />
-    <div class="card-img-overlay">
-      <h6 class="card-title">Card title</h6>
-      <p class="card-text">This content is a little bit longer.</p>
-      <MyButton class="btn btn-primary">Go somewhere</MyButton>
+const Card = ({ type, title, text, specialText, buttonText, imgUrl }) => (
+  <div className="card bg-dark text-white">
+    <img src={imgUrl} className="card-img" alt="..." />
+    <div className="card-img-overlay">
+      <h6 className="card-title">{title}</h6>
+      <p className="card-text">
+        {text}
+        <span className={`text-${type}`}>{specialText}</span>
+      </p>
+      <MyButton className={`btn btn-${type}`}>{buttonText}</MyButton>
     </div>
   </div>
 );
