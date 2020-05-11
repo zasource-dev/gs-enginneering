@@ -1,5 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset-advanced';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset-advanced";
+
+import "../scss/app.scss";
 
 export default createGlobalStyle`
   ${reset};

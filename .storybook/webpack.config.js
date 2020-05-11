@@ -1,3 +1,27 @@
+const getCssLoaderConfig = (isDevelopment) => [
+  {
+    loader: "style-loader",
+  },
+  {
+    loader: "css-loader",
+    options: {
+      minimize: !isDevelopment,
+      sourceMap: isDevelopment,
+    },
+  },
+];
+
+const getSassLoaderConfig = (isDevelopment) => [
+  ...getCssLoaderConfig(isDevelopment),
+  {
+    loader: "sass-loader",
+    options: {
+      minimize: !isDevelopment,
+      sourceMap: isDevelopment,
+    },
+  },
+];
+
 module.exports = ({ config }) => {
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
   config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
@@ -21,5 +45,13 @@ module.exports = ({ config }) => {
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   config.resolve.mainFields = ["browser", "module", "main"];
 
-  return config
+  // add the Sass loaders
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: getSassLoaderConfig(true),
+  });
+  // tell Webpack to recognize .scss files
+  config.resolve.extensions.push(".ts", ".tsx", ".scss");
+
+  return config;
 };
