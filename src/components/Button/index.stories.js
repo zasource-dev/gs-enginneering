@@ -3,4 +3,8 @@ import { storiesOf } from "@storybook/react";
 
 import MyButton from ".";
 
-storiesOf("MyButton", module).add("Default", () => <MyButton />);
+storiesOf("Buttons/MyButton", module)
+  .add("Default", () => <MyButton />)
+  .add("Primary", () => <MyButton className="btn btn-primary" />)
+  .add("Warning", () => <MyButton className="btn btn-warning" />)
+  .add("Success", () => <MyButton className="btn btn-success" />);

@@ -1,1 +1,53 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "variables";
+
+body.body {
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+  font-style: normal;
+  color: #989899;
+  background-color: #fff;
+  font-size: 1.6rem;
+}
+
+.btn {
+  font-size: 13px;
+  border-radius: 0;
+  font-weight: 500;
+  z-index: 1;
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+  text-transform: uppercase;
+  background-color: $color-light-grey;
+
+  &-primary {
+    background-color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.8);
+    }
+  }
+
+  &-warning {
+    background-color: $color-yellow;
+    border-color: $color-yellow;
+
+    &:hover {
+      background-color: rgba($color-yellow, 0.8);
+    }
+  }
+
+  &-success {
+    background-color: $color-green;
+    border-color: $color-green;
+
+    &:hover {
+      background-color: rgba($color-green, 0.8);
+    }
+  }
+
+  & a {
+    color: $color-white;
+  }
+}
