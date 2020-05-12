@@ -82,6 +82,8 @@ body.body {
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
   font-size: 0.875rem;
 
+  max-height: 200px;
+
   &-img-overlay {
     padding: 70px;
     max-width: 440px;
@@ -104,3 +106,48 @@ body.body {
 }
 
 // Nav
+
+// Services
+
+$square-w-h: 70px;
+
+.service {
+  .service-title {
+    color: $color-primary;
+    font-weight: 600;
+    padding: 2em 0;
+  }
+
+  .service-icon {
+    width: $square-w-h;
+    height: $square-w-h;
+    margin: auto;
+    img {
+      border-radius: 100px;
+      border: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    &:hover,
+    &:active {
+      color: $color-primary;
+    }
+  }
+}
+
+// Forms
+
+.form-legend {
+  font-size: 1.5rem;
+  margin: 1.2rem 0;
+  font-weight: 600;
+}
+
+.form-submit {
+  float: right;
+}
+label {
+  margin: 10px 0 !important;
+}
