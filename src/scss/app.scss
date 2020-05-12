@@ -1,1 +1,175 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "variables";
+body.body {
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+  font-style: normal;
+  color: #989899;
+  background-color: #fff;
+  font-size: 1.6rem;
+}
+
+//Text
+
+.text-primary {
+  color: $color-primary !important;
+}
+
+.text-warning {
+  color: $color-yellow !important;
+}
+.text-success {
+  color: $color-green !important;
+}
+
+// BUttons
+.btn {
+  font-size: 13px;
+  border-radius: 0;
+  font-weight: 500;
+  z-index: 1;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  text-transform: uppercase;
+  background-color: $color-light-grey;
+
+  &-primary {
+    background-color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.8);
+    }
+  }
+
+  &-warning {
+    background-color: $color-yellow;
+    border-color: $color-yellow;
+
+    &:hover {
+      background-color: rgba($color-yellow, 0.8);
+    }
+  }
+
+  &-success {
+    background-color: $color-green;
+    border-color: $color-green;
+
+    &:hover {
+      background-color: rgba($color-green, 0.8);
+    }
+  }
+
+  & a {
+    color: $color-white;
+  }
+}
+
+// Cards
+
+.card {
+  border: 0;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-image: none;
+  background-size: auto;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  font-size: 0.875rem;
+
+  max-height: 200px;
+
+  &-img-overlay {
+    padding: 70px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  &-title {
+    color: #fff !important;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &-text {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+    padding-bottom: 1.5rem;
+    width: 100%;
+  }
+}
+
+// Nav
+
+.navbar {
+  .bg-transparent {
+    background-color: rgba(255, 255, 255, 0.78) !important;
+    padding-bottom: 15px;
+  }
+  .nav-item a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-primary;
+    .active {
+      border-bottom: 2px solid rgba($color-primary, 0.9);
+    }
+  }
+  .nav-top {
+    position: absolute;
+    right: 3rem;
+    bottom: 4rem;
+  }
+}
+
+// Services
+
+$square-w-h: 70px;
+
+.service {
+  .service-title {
+    color: $color-primary;
+    font-weight: 600;
+    padding: 2em 0;
+  }
+
+  .service-icon {
+    width: $square-w-h;
+    height: $square-w-h;
+    margin: auto;
+    img {
+      border-radius: 100px;
+      border: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    &:hover,
+    &:active {
+      color: $color-primary;
+    }
+  }
+}
+
+// Forms
+
+.form-legend {
+  font-size: 1.5rem;
+  margin: 1.2rem 0;
+  font-weight: 600;
+}
+
+.form-submit {
+  float: right;
+}
+label {
+  margin: 10px 0 !important;
+}
