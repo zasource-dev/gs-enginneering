@@ -17,7 +17,7 @@ const ContactForm = () => (
   <Container class="section">
     <Row>
       <Col md={5}>
-        <Card imgUrl="https://picsum.photos/200/200" />
+        <Card imgUrl="https://picsum.photos/500/500" />
       </Col>
       <Col md={{ size: 6, offset: 1 }}>
         <Form>

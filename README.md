@@ -1,37 +1,46 @@
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="./src/assets/images/cover.png" width="600" />
+    <img alt="GS Engineering" src="./src/assets/logos/full-g-s-logo.png" width="500" />
   </a>
 </p>
 <h1 align="center">
-  GatsbyJS + Storybook Starter
+  G & S Engineering Landing Page
 </h1>
 <p align="center">
-  Gatsby starter that uses Storybook + additional set of tools listed bellow, and provides an easy to start structure to get you up and running with your Gatsby powered site.
+  A full stack developer test from League Digital
 </p>
 
-##  What's inside?
+## What's inside?
 
-- Gatsby (v2)
-- Storybook (v5)
+- React Gatsby (v2)
+- React Storybook (v5)
 - Styled Components (v4)
 - Styled Reset (Advanced)
+- Bootstrap v4 (Advanced)
+- Sass/Scss
+- NetlifyCMS
 - Netlify Conf
 - Eslint
 
 ## Quick start
-```bash
-$ gatsby new my-awesome-site https://github.com/markoradak/gatsby-starter-storybook
 
-$ cd my-awesome-site
-$ yarn start || yarn develop
+```bash
+# 1. Clone the branch locally
+$ git clone https://github.com/zasource-dev/gs-enginneering.git
+
+
+$ cd gs-engineering
+
+# 2. Intsall Packages using Yarn or Npm
+$ yarn || npm install
+
+# 3. Start the local server
+$ yarn start:gatsby || npm run start:gatsby
+
+# 4. For the Storybook Component Librarry
+$ yarn start:storybook || npm run tart:storybook
 ```
 
-## Deploy
+## Link Demo
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markoradak/gatsby-starter-storybook)
-
-## License
-
-Licensed under the MIT License, Copyright © 2018 Marko Radak.  
-See [license](LICENSE) for more information.
+Link: [G & S Engineering](https://fervent-goldwasser-577acc.netlify.app/)
