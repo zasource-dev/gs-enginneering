@@ -6,13 +6,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Storybook Starter",
-        short_name: "Gatsby Storybook Starter",
+        name: "G & S Engineering Landing Page",
+        short_name: "G-S Eng",
         start_url: "/",
         background_color: "#ffffff",
         theme_color: "#744C9E",
         display: "standalone",
-        icon: "src/assets/logos/icon.png",
+        icon: "src/assets/logos/g-s-logo-compact.png",
       },
     },
     {
