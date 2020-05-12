@@ -115,13 +115,17 @@ body.body {
   .nav-item a {
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
     color: $color-primary;
-    transition: 0.5s all ease-out;
     .active {
       border-bottom: 2px solid rgba($color-primary, 0.9);
     }
+  }
+  .nav-top {
+    position: absolute;
+    right: 3rem;
+    bottom: 4rem;
   }
 }
 

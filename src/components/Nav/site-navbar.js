@@ -8,11 +8,12 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
+  Container,
   NavItem,
   NavLink,
 } from "reactstrap";
 
-import Logo from "../Image/logo";
+import { Logo, NavTopLogo } from "../Image/logo";
 
 const NavLinkList = (props) => {
   const navLinksData = [
@@ -52,16 +53,21 @@ const SiteNavbar = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md" className="bg-transparent">
-        <NavbarBrand href="/">
-          <Logo />
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavLinkList {...props} />
-          </Nav>
-        </Collapse>
+      <Navbar color="light" light expand="md" className="bg-transparent border">
+        <Container className="my-3">
+          <div className="nav-top">
+            <NavTopLogo />
+          </div>
+          <NavbarBrand href="/">
+            <Logo />
+          </NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavLinkList {...props} />
+            </Nav>
+          </Collapse>
+        </Container>
       </Navbar>
     </div>
   );

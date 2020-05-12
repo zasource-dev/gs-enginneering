@@ -3,17 +3,16 @@ import styled from "styled-components";
 
 import Layout from "../global/Layout";
 import Button from "../components/Button";
+import SiteNavbar from "../components/Nav/site-navbar";
 
 const Page = styled.div`
   width: 100%;
   height: 100vh;
-  padding: 20px;
 `;
 const IndexPage = () => (
   <Layout>
     <Page>
-      <h1>Hello This is a header</h1>
-      <Button> View All Markets</Button>
+      <SiteNavbar />
     </Page>
   </Layout>
 );
