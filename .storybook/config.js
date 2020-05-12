@@ -30,7 +30,7 @@ global.__PATH_PREFIX__ = "";
 window.___navigate = (pathname) => {
   action("NavigateTo:")(pathname);
 };
-const req = require.context("../src/components", true, /\.stories\.js$/);
+const req = require.context("../src", true, /\.stories\.js$/);
 
 function loadStories() {
   req.keys().forEach((filename) => req(filename));

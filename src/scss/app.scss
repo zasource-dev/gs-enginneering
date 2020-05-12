@@ -173,3 +173,20 @@ $square-w-h: 70px;
 label {
   margin: 10px 0 !important;
 }
+
+// Sections
+
+.section {
+  padding: 20px 0;
+  &-title {
+    display: block;
+    text-transform: uppercase;
+  }
+}
+// Abput Asetion
+p.description {
+  color: #989899;
+  letter-spacing: -0.26px;
+  font-weight: 400;
+  line-height: 1.7rem;
+}
