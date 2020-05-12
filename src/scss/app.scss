@@ -1,14 +1,17 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 body.body {
   font-family: "Helvetica Neue";
   font-weight: 300;
   font-style: normal;
   color: #989899;
-  background-color: #fff;
+  background-color: #fff !important;
   font-size: 1.6rem;
 }
 
+a.btn {
+  color: $color-white !important;
+}
 //Text
 
 .text-primary {
@@ -27,7 +30,6 @@ body.body {
   font-size: 13px;
   border-radius: 0;
   font-weight: 500;
-  z-index: 1;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   text-transform: uppercase;
@@ -74,19 +76,14 @@ body.body {
   border-radius: 6px;
   color: rgba(0, 0, 0, 0.87);
   background: #fff;
-  background-position-x: 0%;
-  background-position-y: 0%;
   background-image: none;
   background-size: auto;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
   font-size: 0.875rem;
 
-  max-height: 200px;
-
   &-img-overlay {
     padding: 70px;
-    max-width: 440px;
     margin: 0 auto;
   }
 
@@ -134,13 +131,14 @@ body.body {
 $square-w-h: 70px;
 
 .service {
-  .service-title {
+  &-title {
     color: $color-primary;
     font-weight: 600;
     padding: 2em 0;
+    text-transform: capitalize !important;
   }
 
-  .service-icon {
+  &-icon {
     width: $square-w-h;
     height: $square-w-h;
     margin: auto;
@@ -148,6 +146,11 @@ $square-w-h: 70px;
       border-radius: 100px;
       border: 0;
     }
+  }
+
+  &-list {
+    display: flex;
+    margin: 40px 0;
   }
 
   a {
@@ -176,11 +179,22 @@ label {
 
 // Sections
 
-.section {
+.section-container {
+  display: flex;
   padding: 20px 0;
+  min-height: 600px;
   &-title {
     display: block;
     text-transform: uppercase;
+  }
+
+  .section-title {
+    display: block;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 30px;
+    font-weight: 600;
   }
 }
 // Abput Asetion
@@ -189,4 +203,7 @@ p.description {
   letter-spacing: -0.26px;
   font-weight: 400;
   line-height: 1.7rem;
+}
+.bg-grey {
+  background-color: rgba($color-black, 0.1) !important;
 }
