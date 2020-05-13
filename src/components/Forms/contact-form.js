@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 import {
   Container,
@@ -10,9 +11,27 @@ import {
   FormGroup,
   Label,
   Input,
+  FormFeedback,
 } from "reactstrap";
 
 import Card from "../Card";
+
+const ContactFormSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(100, "Too Long!")
+    .required("Name is a required field"),
+  email: Yup.string()
+    .email("Invalid email")
+    .required("email is a required field"),
+  phoneNumber: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Phone number is a required field"),
+  startDate: Yup.string().required("Start Date is required"),
+  endDate: Yup.string().required("End Date is required"),
+});
+
 const ContactForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -22,10 +41,15 @@ const ContactForm = () => {
       startDate: "",
       endDate: "",
     },
+    validationSchema: ContactFormSchema,
+
     onSubmit: (values) => {
       handleSubmit(values);
     },
   });
+
+  const validateField = ({ errors, touched }, field) =>
+    errors[field] && touched[field];
 
   const handleSubmit = (values) => {
     fetch("http://localhost:3000/data", {
@@ -48,7 +72,7 @@ const ContactForm = () => {
           <Card imgUrl="https://picsum.photos/200/200" />
         </Col>
         <Col md={{ size: 6, offset: 1 }}>
-          <Form name="contact" method="POST" onSubmit={formik.handleSubmit}>
+          <Form method="POST" onSubmit={formik.handleSubmit}>
             <legend className="form-legend">
               Complete the form to get in touch
             </legend>
@@ -60,7 +84,14 @@ const ContactForm = () => {
                 id="name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
+                invalid={validateField(formik, "name")}
+                valid={formik.touched.name}
               />
+              {validateField(formik, "name") ? (
+                <FormFeedback invalid={validateField(formik, "name")}>
+                  {formik.errors.name}
+                </FormFeedback>
+              ) : null}
             </FormGroup>
             <FormGroup>
               <Label for="email">Email Address</Label>
@@ -70,7 +101,14 @@ const ContactForm = () => {
                 id="email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
+                invalid={validateField(formik, "email")}
+                valid={formik.touched.email}
               />
+              {validateField(formik, "email") ? (
+                <FormFeedback invalid={validateField(formik, "email")}>
+                  {formik.errors.email}
+                </FormFeedback>
+              ) : null}
             </FormGroup>
             <FormGroup>
               <Label for="phoneNumber">Phone number</Label>
@@ -80,7 +118,14 @@ const ContactForm = () => {
                 id="phoneNumber"
                 onChange={formik.handleChange}
                 value={formik.values.phoneNumber}
+                invalid={validateField(formik, "phoneNumber")}
+                valid={formik.touched.phoneNumber}
               />
+              {validateField(formik, "phoneNumber") ? (
+                <FormFeedback invalid={validateField(formik, "phoneNumber")}>
+                  {formik.errors.phoneNumber}
+                </FormFeedback>
+              ) : null}
             </FormGroup>
             <Row form>
               <Col md={6}>
@@ -92,7 +137,14 @@ const ContactForm = () => {
                     id="startDate"
                     onChange={formik.handleChange}
                     value={formik.values.startDate}
+                    invalid={validateField(formik, "startDate")}
+                    valid={formik.touched.startDate}
                   />
+                  {validateField(formik, "startDate") ? (
+                    <FormFeedback invalid={validateField(formik, "startDate")}>
+                      {formik.errors.startDate}
+                    </FormFeedback>
+                  ) : null}
                 </FormGroup>
               </Col>
               <Col md={6}>
@@ -102,12 +154,16 @@ const ContactForm = () => {
                     type="date"
                     name="endDate"
                     id="endDate"
-                    type="date"
-                    name="endDate"
-                    id="endDate"
                     onChange={formik.handleChange}
                     value={formik.values.endDate}
+                    invalid={validateField(formik, "endDate")}
+                    valid={formik.touched.endDate}
                   />
+                  {validateField(formik, "endDate") ? (
+                    <FormFeedback invalid={validateField(formik, "endDate")}>
+                      {formik.errors.endDate}
+                    </FormFeedback>
+                  ) : null}
                 </FormGroup>
               </Col>
             </Row>
@@ -115,6 +171,7 @@ const ContactForm = () => {
               <Button className="btn btn-primary ">Submit</Button>
             </span>
           </Form>
+          <pre>{JSON.stringify(formik, null, 4)}</pre>
         </Col>
       </Row>
     </Container>
