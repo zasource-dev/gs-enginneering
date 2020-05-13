@@ -7,6 +7,7 @@ import SiteNavbar from "../components/Nav/site-navbar";
 import AboutSection from "../containers/About";
 import ServicesSection from "../containers/Services";
 import ContactForm from "../components/Forms/contact-form";
+import DisplayEntries from "../containers/DisplayEntries";
 
 const Page = styled.div`
   width: 100%;
@@ -21,6 +22,7 @@ const IndexPage = () => (
       <Section>
         <ContactForm />
       </Section>
+      <DisplayEntries />
     </Page>
   </Layout>
 );

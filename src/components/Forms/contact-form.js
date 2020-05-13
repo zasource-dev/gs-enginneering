@@ -10,7 +10,6 @@ import {
   FormGroup,
   Label,
   Input,
-  Table,
 } from "reactstrap";
 
 import Card from "../Card";
@@ -24,22 +23,21 @@ const ContactForm = () => {
       endDate: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       handleSubmit(values);
     },
   });
 
   const handleSubmit = (values) => {
-    fetch("/", {
+    fetch("http://localhost:3000/data", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", values }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
     })
       .then((res) => {
         alert("Success!");
         console.log(res.data);
       })
-      .catch((error) => alert(error));
+      .catch((error) => console.log(error));
 
     e.preventDefault();
   };
@@ -50,13 +48,7 @@ const ContactForm = () => {
           <Card imgUrl="https://picsum.photos/200/200" />
         </Col>
         <Col md={{ size: 6, offset: 1 }}>
-          <Form
-            name="contact"
-            method="POST"
-            netlify="true"
-            netlify-honeypot="bot-field"
-            onSubmit={formik.handleSubmit}
-          >
+          <Form name="contact" method="POST" onSubmit={formik.handleSubmit}>
             <legend className="form-legend">
               Complete the form to get in touch
             </legend>

@@ -3,7 +3,9 @@ import { storiesOf } from "@storybook/react";
 
 import AboutSection from "./About";
 import ServicesSection from "./Services";
+import DisplayEntries from "./DisplayEntries";
 
 storiesOf("Sections", module)
   .add("About", () => <AboutSection />)
-  .add("Services", () => <ServicesSection />);
+  .add("Services", () => <ServicesSection />)
+  .add("DisplayEntries", () => <DisplayEntries />);

@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "name": "Green Gleason",
+      "email": "vusi@colonyhq.com",
+      "phoneNumber": "0724473317",
+      "startDate": "2020-05-13",
+      "endDate": "2020-05-15",
+      "id": 1
+    },
+    {
+      "name": "Vusi Mosena",
+      "email": "drmosena@gmail.com",
+      "phoneNumber": "0724473317",
+      "startDate": "2020-05-13",
+      "endDate": "2020-05-15",
+      "id": 2
+    }
+  ]
+}
