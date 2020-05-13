@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
+import moment from "moment";
 import {
   Container,
   Row,
@@ -12,6 +12,7 @@ import {
   Label,
   Input,
   FormFeedback,
+  Alert,
 } from "reactstrap";
 
 import Card from "../Card";
@@ -25,11 +26,16 @@ const ContactFormSchema = Yup.object().shape({
     .email("Invalid email")
     .required("email is a required field"),
   phoneNumber: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
+    .min(10, "Phone number is too Short!")
     .required("Phone number is a required field"),
-  startDate: Yup.string().required("Start Date is required"),
-  endDate: Yup.string().required("End Date is required"),
+  startDate: Yup.date()
+    .min(moment().format(), "Start Date must start from tommorrow")
+    .max(Yup.ref("endDate"), "Start date must be less than End Date")
+    .required("Start Date is required"),
+  endDate: Yup.date()
+    .min(moment().format(), "Start Date must start from tommorrow")
+    .min(Yup.ref("startDate"), "End Date must be greater Start Date")
+    .required("End Date is required"),
 });
 
 const ContactForm = () => {
@@ -50,6 +56,15 @@ const ContactForm = () => {
 
   const validateField = ({ errors, touched }, field) =>
     errors[field] && touched[field];
+
+  const validateDates = (startDate, endDate) => {
+    console.log(endDate);
+    let error;
+    if (new Date(startDate) > new Date(endDate)) {
+      error = "End Date must be greater than Start Date";
+    }
+    return error;
+  };
 
   const handleSubmit = (values) => {
     fetch("http://localhost:3000/data", {
